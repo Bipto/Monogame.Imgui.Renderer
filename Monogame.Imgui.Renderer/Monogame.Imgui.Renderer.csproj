@@ -8,7 +8,8 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <FileVersion></FileVersion>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
+    <Authors>Bipto</Authors>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ImGui.NET" Version="1.78.0" />
