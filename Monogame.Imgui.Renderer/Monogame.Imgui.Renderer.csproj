@@ -1,12 +1,14 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <Company>Bipto</Company>
     <Description>A Monogame Imgui renderer that has been reimplemented form the ImGui.NET XNA sample.</Description>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <FileVersion></FileVersion>
+    <Version>1.0.1</Version>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="ImGui.NET" Version="1.78.0" />
@@ -15,6 +17,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="LICENSE.txt" Pack="true" PackagePath =""/>
+    <None Include="LICENSE.txt" Pack="true" PackagePath="" />
   </ItemGroup>
 </Project>
