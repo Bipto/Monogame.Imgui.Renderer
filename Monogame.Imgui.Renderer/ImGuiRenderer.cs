@@ -340,39 +340,41 @@ namespace Monogame.Imgui.Renderer
                 {
                     ImDrawCmdPtr drawCmd = cmdList.CmdBuffer[cmdi];
 
-                    if (!_loadedTextures.ContainsKey(drawCmd.TextureId))
+                    if (drawCmd.ElemCount > 0)
                     {
-                        throw new InvalidOperationException($"Could not find a texture with id '{drawCmd.TextureId}', please check your bindings");
-                    }
+                        if (!_loadedTextures.ContainsKey(drawCmd.TextureId))
+                        {
+                            throw new InvalidOperationException($"Could not find a texture with id '{drawCmd.TextureId}', please check your bindings");
+                        }
 
-                    _graphicsDevice.ScissorRectangle = new Rectangle(
-                        (int)drawCmd.ClipRect.X,
-                        (int)drawCmd.ClipRect.Y,
-                        (int)(drawCmd.ClipRect.Z - drawCmd.ClipRect.X),
-                        (int)(drawCmd.ClipRect.W - drawCmd.ClipRect.Y)
-                    );
+                        _graphicsDevice.ScissorRectangle = new Rectangle(
+                            (int)drawCmd.ClipRect.X,
+                            (int)drawCmd.ClipRect.Y,
+                            (int)(drawCmd.ClipRect.Z - drawCmd.ClipRect.X),
+                            (int)(drawCmd.ClipRect.W - drawCmd.ClipRect.Y)
+                        );
 
-                    var effect = UpdateEffect(_loadedTextures[drawCmd.TextureId]);
+                        var effect = UpdateEffect(_loadedTextures[drawCmd.TextureId]);
 
-                    foreach (var pass in effect.CurrentTechnique.Passes)
-                    {
-                        pass.Apply();
+                        foreach (var pass in effect.CurrentTechnique.Passes)
+                        {
+                            pass.Apply();
 
 #pragma warning disable CS0618 // // FNA does not expose an alternative method.
-                        _graphicsDevice.DrawIndexedPrimitives(
-                            primitiveType: PrimitiveType.TriangleList,
-                            baseVertex: vtxOffset,
-                            minVertexIndex: 0,
-                            numVertices: cmdList.VtxBuffer.Size,
-                            startIndex: idxOffset,
-                            primitiveCount: (int)drawCmd.ElemCount / 3
-                        );
+                            _graphicsDevice.DrawIndexedPrimitives(
+                                primitiveType: PrimitiveType.TriangleList,
+                                baseVertex: vtxOffset,
+                                minVertexIndex: 0,
+                                numVertices: cmdList.VtxBuffer.Size,
+                                startIndex: idxOffset + (int)drawCmd.IdxOffset,
+                                primitiveCount: (int)drawCmd.ElemCount / 3
+                            );
 #pragma warning restore CS0618
+                        }
                     }
-
-                    idxOffset += (int)drawCmd.ElemCount;
                 }
 
+                idxOffset += cmdList.IdxBuffer.Size;
                 vtxOffset += cmdList.VtxBuffer.Size;
             }
         }
