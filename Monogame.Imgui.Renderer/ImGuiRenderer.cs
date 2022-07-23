@@ -116,11 +116,11 @@ namespace Monogame.Imgui.Renderer
         /// <summary>
         /// Sets up ImGui for a new frame, should be called at frame start
         /// </summary>
-        public virtual void BeforeLayout(GameTime gameTime)
+        public virtual void BeforeLayout(Game game, GameTime gameTime)
         {
             ImGui.GetIO().DeltaTime = (float)gameTime.ElapsedGameTime.TotalSeconds;
 
-            UpdateInput();
+            UpdateInput(game);
 
             ImGui.NewFrame();
         }
@@ -210,8 +210,11 @@ namespace Monogame.Imgui.Renderer
         /// <summary>
         /// Sends XNA input state to ImGui
         /// </summary>
-        protected virtual void UpdateInput()
+        protected virtual void UpdateInput(Game game)
         {
+            if (!game.IsActive)
+                return;
+
             var io = ImGui.GetIO();
 
             var mouse = Mouse.GetState();

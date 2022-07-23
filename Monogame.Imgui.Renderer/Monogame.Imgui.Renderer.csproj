@@ -8,7 +8,7 @@
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
     <FileVersion></FileVersion>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Bipto</Authors>
   </PropertyGroup>
   <ItemGroup>
