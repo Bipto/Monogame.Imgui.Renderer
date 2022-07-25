@@ -1,4 +1,5 @@
 ﻿using ImGuiNET;
+using ImNodesNET;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -44,6 +45,8 @@ namespace Monogame.Imgui.Renderer
         {
             var context = ImGui.CreateContext();
             ImGui.SetCurrentContext(context);
+
+            ImNodes.CreateContext();
 
             _game = game ?? throw new ArgumentNullException(nameof(game));
             _graphicsDevice = game.GraphicsDevice;

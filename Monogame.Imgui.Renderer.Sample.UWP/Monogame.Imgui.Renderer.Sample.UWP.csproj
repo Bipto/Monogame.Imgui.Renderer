@@ -87,6 +87,22 @@
     <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
   </PropertyGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Downloads\ImGui.NET\src\ImGuizmo.NET\ImGuizmo.NET.csproj">
+      <Project>{1ba356c3-ba86-4f41-bc2c-3819aa2c0522}</Project>
+      <Name>ImGuizmo.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Downloads\ImGui.NET\src\ImNodes.NET\ImNodes.NET.csproj">
+      <Project>{9b30e56f-00de-45de-9779-1672e108e047}</Project>
+      <Name>ImNodes.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\..\Downloads\ImGui.NET\src\ImPlot.NET\ImPlot.NET.csproj">
+      <Project>{ab6c4abf-b768-4204-b648-1d1a11b1345a}</Project>
+      <Name>ImPlot.NET</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ImGui.NET\src\ImGui.NET\ImGui.NET.csproj">
+      <Project>{aa2f41ff-bde3-4140-a78e-5415a9d33842}</Project>
+      <Name>ImGui.NET</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Monogame.Imgui.Renderer\Monogame.Imgui.Renderer.csproj">
       <Project>{d0aeef4e-0c52-4fe1-a7cb-3d693ba57ef1}</Project>
       <Name>Monogame.Imgui.Renderer</Name>
@@ -119,9 +135,6 @@
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="ImGui.NET">
-      <Version>1.87.3</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
       <Version>6.2.9</Version>
     </PackageReference>

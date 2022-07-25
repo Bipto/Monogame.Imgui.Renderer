@@ -1,10 +1,9 @@
 ﻿using ImGuiNET;
-using ImNodesNET;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 
-namespace Monogame.Imgui.Renderer.Sample
+namespace Monogame.Imgui.Renderer.Sample.DX
 {
     public class Game1 : Game
     {
@@ -18,7 +17,6 @@ namespace Monogame.Imgui.Renderer.Sample
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-            Window.AllowUserResizing = true;
         }
 
         protected override void Initialize()
@@ -54,8 +52,6 @@ namespace Monogame.Imgui.Renderer.Sample
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
 
-            // TODO: Add your drawing code here
-
             _imGuiRenderer.BeforeLayout(this, gameTime);
 
             ImGuiWindowFlags windowFlags = ImGuiWindowFlags.MenuBar | ImGuiWindowFlags.NoDocking;
@@ -76,28 +72,6 @@ namespace Monogame.Imgui.Renderer.Sample
                 ImGui.DockSpaceOverViewport(ImGui.GetCurrentContext());
 
                 ImGui.ShowDemoWindow();
-
-                if (ImGui.Begin("node editor"))
-                {
-                    ImNodes.BeginNodeEditor();
-
-                    //render node
-                    {
-                        ImNodes.BeginNode(0);
-                        ImNodes.BeginNodeTitleBar();
-                        ImGui.Text("Hello World!");
-                        ImNodes.EndNodeTitleBar();
-                        ImNodes.BeginOutputAttribute(2);
-                        ImGui.Text("output");
-                        ImNodes.EndOutputAttribute();
-                        ImNodes.EndNode();
-                    }
-
-                    ImNodes.EndNodeEditor();
-
-                    ImGui.End();
-                }
-
                 ImGui.End();
             }
 

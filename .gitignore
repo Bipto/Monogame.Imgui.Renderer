@@ -1,0 +1,14 @@
+﻿.vs
+Monogame.Imgui.Renderer/bin
+Monogame.Imgui.Renderer/obj
+Monogame.Imgui.Renderer/Properties
+Monogame.Imgui.Renderer.Sample/bin
+Monogame.Imgui.Renderer.Sample/Content/bin
+Monogame.Imgui.Renderer.Sample/Content/obj
+Monogame.Imgui.Renderer.Sample/obj
+Monogame.Imgui.Renderer.Sample.DX/bin
+Monogame.Imgui.Renderer.Sample.DX/obj
+Monogame.Imgui.Renderer.Sample.DX/Content/obj
+Monogame.Imgui.Renderer.Sample.UWP/bin
+Monogame.Imgui.Renderer.Sample.UWP/obj
+Monogame.Imgui.Renderer.Sample.UWP/Properties
