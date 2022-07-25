@@ -91,6 +91,9 @@ namespace Monogame.Imgui.Renderer.Sample
                         ImGui.Text("output");
                         ImNodes.EndOutputAttribute();
                         ImNodes.EndNode();
+
+                        if (Keyboard.GetState().IsKeyDown(Keys.Space))
+                            ImNodes.EditorContextResetPanning(System.Numerics.Vector2.Zero);
                     }
 
                     ImNodes.EndNodeEditor();
